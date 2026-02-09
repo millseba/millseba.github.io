@@ -4,7 +4,7 @@
 # This file is formatted using YAML syntax - learn more at https://learnxinyminutes.com/docs/yaml/
 
 title: Shaw Lab # Website name
-baseURL: 'https://shawlab.ch/' # Website URL
+baseURL: "https://millseba.github.io/" # Website URL
 
 ############################
 ## LANGUAGE
