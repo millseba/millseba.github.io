@@ -41,63 +41,39 @@ jobs:
         run: |
           academic import publications.bib content/publication/ --compact
 
-            - name: Add "Publisher" button from DOI (links:)
+      - name: Add Publisher button from DOI (links:)
         if: ${{ hashFiles('content/publication/**/index.md') != '' }}
         run: |
           python - <<'PY'
-          import glob, re
-          import yaml
+          import glob, re, yaml
 
-          def split_front_matter(s: str):
-              if not s.startswith('---'):
-                  return None, s
-              parts = s.split('---', 2)
-              if len(parts) < 3:
-                  return None, s
-              return parts[1].strip(), parts[2]
+          def split_fm(s):
+              if not s.startswith('---'): return None, s
+              a = s.split('---', 2)
+              return (a[1].strip(), a[2]) if len(a) >= 3 else (None, s)
 
-          def norm_doi(doi: str) -> str:
-              doi = (doi or "").strip()
-              doi = re.sub(r'^(https?://(dx\.)?doi\.org/)', '', doi, flags=re.I)
-              return doi.strip()
+          def norm_doi(d):
+              d = (d or "").strip()
+              return re.sub(r'^(https?://(dx\.)?doi\.org/)', '', d, flags=re.I).strip()
 
-          updated = 0
           for path in glob.glob('content/publication/**/index.md', recursive=True):
-              with open(path, 'r', encoding='utf-8') as f:
-                  text = f.read()
+              txt = open(path, encoding='utf-8').read()
+              fm, body = split_fm(txt)
+              if fm is None: continue
+              data = yaml.safe_load(fm) or {}
 
-              fm_text, body = split_front_matter(text)
-              if fm_text is None:
-                  continue
-
-              data = yaml.safe_load(fm_text) or {}
-              doi = norm_doi(str(data.get('doi', '') or ''))
-              if not doi:
-                  continue
-
+              doi = norm_doi(str(data.get('doi','') or ''))
+              if not doi: continue
               target = f"https://doi.org/{doi}"
 
-              links = data.get('links')
-              if links is None:
-                  links = []
-              # If links is not a list, skip safely
-              if not isinstance(links, list):
-                  continue
-
-              # Don’t duplicate
-              already = any((isinstance(x, dict) and (x.get('url') == target or str(x.get('url','')).endswith(doi))) for x in links)
-              if not already:
+              links = data.get('links') or []
+              if not isinstance(links, list): continue
+              if not any(isinstance(x, dict) and x.get('url') == target for x in links):
                   links.insert(0, {"name": "Publisher", "url": target})
                   data['links'] = links
-                  updated += 1
 
-              new_fm = yaml.safe_dump(data, sort_keys=False, allow_unicode=True).strip()
-              new_text = f"---\n{new_fm}\n---{body}"
-              if new_text != text:
-                  with open(path, 'w', encoding='utf-8') as f:
-                      f.write(new_text)
-
-          print(f"Added/updated Publisher links for {updated} publication pages.")
+              newfm = yaml.safe_dump(data, sort_keys=False, allow_unicode=True).strip()
+              open(path, 'w', encoding='utf-8').write(f"---\n{newfm}\n---{body}")
           PY
 
 
