@@ -1,56 +1,133 @@
-# Hugo Blox GitHub Action to convert Bibtex publications to Markdown-based webpages
 name: Import Publications From Bibtex
 
-# Require permission to create a PR
 permissions:
   contents: write
   pull-requests: write
 
-# Run workflow when a `.bib` file is added or updated in the `data/` folder
 on:
   push:
-    branches: ['main']
-    paths: ['publications.bib']
-
-  # Allows you to run this workflow manually from the Actions tab
+    branches: [main]
+    paths:
+      - publications.bib
   workflow_dispatch:
+
+concurrency:
+  group: import-publications
+  cancel-in-progress: true
 
 jobs:
   hugoblox:
     if: github.repository_owner != 'HugoBlox'
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout the repo
+      - name: Checkout repository
         uses: actions/checkout@v4
-      - name: Set up Python 3.12
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: Install dependencies
+
+      - name: Install importer
         run: |
           python -m pip install --upgrade pip
-          pip install academic==0.10.0
-      - name: Run Academic (Bibtex To Markdown Converter)
-        # Check `.bib` file exists for case when action runs on `.bib` deletion
-        # Note GH only provides hashFiles func in `steps.if` context, not `jobs.if` context
+          pip install academic==0.10.0 pyyaml
+
+      - name: Import publications (BibTeX → Markdown)
         if: ${{ hashFiles('publications.bib') != '' }}
-        run: academic import publications.bib content/publication/ --compact
+        run: |
+          academic import publications.bib content/publication/ --compact
+
+      - name: Ensure "Publisher" button via DOI (adds url: https://doi.org/...)
+        if: ${{ hashFiles('content/publication/**/index.md') != '' }}
+        run: |
+          python - <<'PY'
+          import glob, re, sys
+          import yaml
+
+          def split_front_matter(s: str):
+              # Expect Hugo front matter in YAML:
+              # ---\n ... \n---\n<body>
+              if not s.startswith('---'):
+                  return None, s
+              parts = s.split('---', 2)
+              if len(parts) < 3:
+                  return None, s
+              fm = parts[1].strip()
+              body = parts[2]
+              return fm, body
+
+          def norm_doi(doi: str) -> str:
+              doi = (doi or "").strip()
+              doi = re.sub(r'^(https?://(dx\.)?doi\.org/)', '', doi, flags=re.I)
+              return doi.strip()
+
+          changed = 0
+          for path in glob.glob('content/publication/**/index.md', recursive=True):
+              with open(path, 'r', encoding='utf-8') as f:
+                  text = f.read()
+
+              fm_text, body = split_front_matter(text)
+              if fm_text is None:
+                  continue
+
+              data = yaml.safe_load(fm_text) or {}
+              doi = norm_doi(str(data.get('doi', '') or ''))
+              url = (data.get('url') or '').strip()
+
+              # If DOI exists and url is missing, set url to DOI resolver.
+              if doi and not url:
+                  data['url'] = f'https://doi.org/{doi}'
+                  changed += 1
+
+              # Write back
+              new_fm = yaml.safe_dump(data, sort_keys=False, allow_unicode=True).strip()
+              new_text = f"---\n{new_fm}\n---{body}"
+              if new_text != text:
+                  with open(path, 'w', encoding='utf-8') as f:
+                      f.write(new_text)
+
+          print(f"Updated {changed} publication pages with DOI-based url field.")
+          PY
+
+      - name: Disable author hyperlinks (theme override)
+        run: |
+          mkdir -p layouts/partials
+          cat > layouts/partials/page_metadata_authors.html <<'EOF'
+          {{/* Override: render authors as plain text (no links) */}}
+          {{- $page := .page | default . -}}
+          {{- $authors := $page.Params.authors | default (slice) -}}
+          {{- if gt (len $authors) 0 -}}
+            <span class="authors">
+              {{- range $i, $a := $authors -}}
+                {{- if gt $i 0 -}}, {{ end -}}
+                {{- $a -}}
+              {{- end -}}
+            </span>
+          {{- end -}}
+          EOF
+
       - name: Create Pull Request
-        # Set ID for `Check outputs` stage
         id: cpr
         uses: peter-evans/create-pull-request@v6
         with:
-          commit-message: 'content: import publications from Bibtex'
-          title: Hugo Blox Builder - Import latest publications
+          commit-message: "content: import publications from BibTeX"
+          title: "Hugo Blox Builder - Import latest publications"
           body: |
-            Import the latest publications from `publications.bib` to `content/publication/`.
-            将最新的出版物从`publications.bib`导入到`content/publication/`。
-            [View Documentation](https://github.com/GetRD/academic-file-converter)
+            Imports publications from `publications.bib` into `content/publication/`.
+
+            Post-processing included:
+            - Add `url: https://doi.org/<doi>` when a DOI exists (enables a Publisher/DOI button).
+            - Disable author name hyperlinks via `layouts/partials/page_metadata_authors.html`.
           base: main
           labels: automated-pr, content
           branch: hugoblox-import-publications
           delete-branch: true
-      - name: Check outputs
+
+      - name: Report PR URL
         if: ${{ steps.cpr.outputs.pull-request-number }}
         run: |
           echo "Pull Request Number - ${{ steps.cpr.outputs.pull-request-number }}"
