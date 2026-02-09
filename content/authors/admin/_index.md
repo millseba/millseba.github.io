@@ -17,7 +17,7 @@ organizations:
 bio: Genetics of parasite virulence and persistence.
 
 # Social links (optional)
- social:
+social:
    - icon: google-scholar
      icon_pack: ai
      link: https://scholar.google.com/citations?user=0000-0001-7163-5650
