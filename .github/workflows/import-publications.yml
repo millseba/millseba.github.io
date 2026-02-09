@@ -41,31 +41,27 @@ jobs:
         run: |
           academic import publications.bib content/publication/ --compact
 
-      - name: Ensure "Publisher" button via DOI (adds url: https://doi.org/...)
+            - name: Add "Publisher" button from DOI (links:)
         if: ${{ hashFiles('content/publication/**/index.md') != '' }}
         run: |
           python - <<'PY'
-          import glob, re, sys
+          import glob, re
           import yaml
 
           def split_front_matter(s: str):
-              # Expect Hugo front matter in YAML:
-              # ---\n ... \n---\n<body>
               if not s.startswith('---'):
                   return None, s
               parts = s.split('---', 2)
               if len(parts) < 3:
                   return None, s
-              fm = parts[1].strip()
-              body = parts[2]
-              return fm, body
+              return parts[1].strip(), parts[2]
 
           def norm_doi(doi: str) -> str:
               doi = (doi or "").strip()
               doi = re.sub(r'^(https?://(dx\.)?doi\.org/)', '', doi, flags=re.I)
               return doi.strip()
 
-          changed = 0
+          updated = 0
           for path in glob.glob('content/publication/**/index.md', recursive=True):
               with open(path, 'r', encoding='utf-8') as f:
                   text = f.read()
@@ -76,22 +72,34 @@ jobs:
 
               data = yaml.safe_load(fm_text) or {}
               doi = norm_doi(str(data.get('doi', '') or ''))
-              url = (data.get('url') or '').strip()
+              if not doi:
+                  continue
 
-              # If DOI exists and url is missing, set url to DOI resolver.
-              if doi and not url:
-                  data['url'] = f'https://doi.org/{doi}'
-                  changed += 1
+              target = f"https://doi.org/{doi}"
 
-              # Write back
+              links = data.get('links')
+              if links is None:
+                  links = []
+              # If links is not a list, skip safely
+              if not isinstance(links, list):
+                  continue
+
+              # Don’t duplicate
+              already = any((isinstance(x, dict) and (x.get('url') == target or str(x.get('url','')).endswith(doi))) for x in links)
+              if not already:
+                  links.insert(0, {"name": "Publisher", "url": target})
+                  data['links'] = links
+                  updated += 1
+
               new_fm = yaml.safe_dump(data, sort_keys=False, allow_unicode=True).strip()
               new_text = f"---\n{new_fm}\n---{body}"
               if new_text != text:
                   with open(path, 'w', encoding='utf-8') as f:
                       f.write(new_text)
 
-          print(f"Updated {changed} publication pages with DOI-based url field.")
+          print(f"Added/updated Publisher links for {updated} publication pages.")
           PY
+
 
       - name: Disable author hyperlinks (theme override)
         run: |
