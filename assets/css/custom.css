@@ -1,0 +1,8 @@
+/* Disable author profile links (e.g., /authors/...) */
+a[href^="/authors/"],
+a[href*="/authors/"] {
+  pointer-events: none;
+  cursor: default;
+  text-decoration: none;
+  color: inherit;
+}
