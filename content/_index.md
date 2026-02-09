@@ -1,6 +1,7 @@
 ---
 # Leave the homepage title empty to use the site title
-title:
+title: "Shaw Lab"
+subtitle: "Genetics of parasite virulence and persistence"
 date: 2022-10-24
 type: landing
 
@@ -15,7 +16,7 @@ sections:
       text: |
         <br>
         
-        The **Wowchemy Research Group** has been a center of excellence for Artificial Intelligence research, teaching, and practice since its founding in 2016.
+        We study the genetic and metabolic basis of virulence and persistence in apicomplexan parasites, with a particular focus on *Cryptosporidium*. Using forward genetics, genome engineering, and host–parasite interaction studies, we aim to understand how parasites adapt to their hosts and evade treatment.
   
   - block: collection
     content:
