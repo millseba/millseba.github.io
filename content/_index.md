@@ -10,7 +10,7 @@ sections:
     content:
       title: |
         Shaw
-        Research Group
+        Lab
       image:
         filename: welcome.jpg
       text: |
