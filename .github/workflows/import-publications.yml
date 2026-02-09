@@ -41,6 +41,69 @@ jobs:
         run: |
           academic import publications.bib content/publication/ --compact
 
+      - name: Add DOI + publisher link (fallback by title)
+        if: ${{ hashFiles('content/publication/**/index.md') != '' }}
+        env:
+          CROSSREF_MAILTO: you@example.com
+        run: |
+          python - <<'PY'
+          import glob, re, time, requests, yaml, urllib.parse
+
+          UA = {"User-Agent": "shawlab-site-doi/1.0 (mailto:you@example.com)"}
+          CROSSREF = "https://api.crossref.org/works"
+
+          def split_fm(s: str):
+              if not s.startswith('---'): return None, s
+              parts = s.split('---', 2)
+              return (parts[1].strip(), parts[2]) if len(parts) >= 3 else (None, s)
+
+          def norm(s): 
+              return re.sub(r"\s+", " ", (s or "")).strip()
+
+          def norm_doi(d: str) -> str:
+              d = (d or "").strip()
+              d = re.sub(r'^(https?://(dx\.)?doi\.org/)', '', d, flags=re.I)
+              return d.strip()
+
+          def lookup_doi_by_title(title: str):
+              params = {"query.title": title, "rows": 1}
+              r = requests.get(CROSSREF, params=params, headers=UA, timeout=30)
+              r.raise_for_status()
+              items = r.json()["message"]["items"]
+              if not items: return ""
+              return items[0].get("DOI","") or ""
+
+          changed = 0
+          for path in glob.glob('content/publication/**/index.md', recursive=True):
+              txt = open(path, encoding='utf-8').read()
+              fm, body = split_fm(txt)
+              if fm is None: continue
+              data = yaml.safe_load(fm) or {}
+
+              title = norm(data.get("title",""))
+              doi = norm_doi(str(data.get("doi","") or ""))
+              if not doi and title:
+                  try:
+                      doi = norm_doi(lookup_doi_by_title(title))
+                      time.sleep(0.2)
+                  except Exception:
+                      doi = ""
+
+              if doi:
+                  data["doi"] = doi
+                  target = f"https://doi.org/{doi}"
+                  if not str(data.get("url_source","") or "").strip():
+                      data["url_source"] = target
+                  if not str(data.get("url","") or "").strip():
+                      data["url"] = target
+                  changed += 1
+
+              newfm = yaml.safe_dump(data, sort_keys=False, allow_unicode=True).strip()
+              open(path, 'w', encoding='utf-8').write(f"---\n{newfm}\n---{body}")
+
+          print(f"Updated {changed} publications with doi/url_source.")
+          PY
+
       - name: Add Publisher button from DOI (links:)
         if: ${{ hashFiles('content/publication/**/index.md') != '' }}
         run: |
