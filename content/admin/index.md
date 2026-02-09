@@ -1,8 +1,9 @@
 ---
-# Generate Decap CMS
-type: decap_cms
-private: true
-outputs:
-  - decap_cms_config
-  - HTML
+title: Sebastian Shaw
+name: Sebastian Shaw
+role: Principal Investigator
+superuser: true
+authors:
+  - Sebastian Shaw
 ---
+
