@@ -9,8 +9,7 @@ sections:
   - block: hero
     content:
       title: |
-        Shaw
-        Lab
+        The Origin of Phenotypic Differences
       image:
         filename: welcome.jpg
       text: |
