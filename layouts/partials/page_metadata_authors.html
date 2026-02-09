@@ -1,6 +1,6 @@
 {{/* Override: render authors as plain text (no links) */}}
-{{- $p := . -}}
-{{- $authors := $p.Params.authors | default (slice) -}}
+{{- $page := .page | default . -}}
+{{- $authors := $page.Params.authors | default (slice) -}}
 {{- if gt (len $authors) 0 -}}
   <span class="authors">
     {{- range $i, $a := $authors -}}
