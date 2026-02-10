@@ -9,8 +9,6 @@ publication_types:
 - article-journal
 publication: '*The Journal of Infectious Diseases*'
 doi: 10.1093/infdis/jiae277
-url_source: https://doi.org/10.1093/infdis/jiae277
-url: https://doi.org/10.1093/infdis/jiae277
 links:
 - name: Publisher
   url: https://doi.org/10.1093/infdis/jiae277
