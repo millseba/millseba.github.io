@@ -18,8 +18,6 @@ publication_types:
 - article-journal
 publication: '*Cell reports*'
 doi: 10.1016/j.celrep.2025.116315
-url_source: https://doi.org/10.1016/j.celrep.2025.116315
-url: https://doi.org/10.1016/j.celrep.2025.116315
 links:
 - name: Publisher
   url: https://doi.org/10.1016/j.celrep.2025.116315
