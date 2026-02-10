@@ -19,8 +19,6 @@ publication_types:
 - article-journal
 publication: '*Journal of Experimental Medicine*'
 doi: 10.1084/jem.20232067
-url_source: https://doi.org/10.1084/jem.20232067
-url: https://doi.org/10.1084/jem.20232067
 links:
 - name: Publisher
   url: https://doi.org/10.1084/jem.20232067
