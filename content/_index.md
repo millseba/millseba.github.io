@@ -11,7 +11,7 @@ sections:
       title: |
         The Origin of Phenotypic Differences
       image:
-        filename: welcome.jpg
+        filename: welcome.tif
       text: |
         <br>
         
