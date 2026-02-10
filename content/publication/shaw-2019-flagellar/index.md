@@ -14,8 +14,6 @@ publication_types:
 - article-journal
 publication: '*Nature communications*'
 doi: 10.1038/s41467-019-08696-y
-url_source: https://doi.org/10.1038/s41467-019-08696-y
-url: https://doi.org/10.1038/s41467-019-08696-y
 links:
 - name: Publisher
   url: https://doi.org/10.1038/s41467-019-08696-y
