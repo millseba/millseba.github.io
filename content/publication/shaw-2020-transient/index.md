@@ -12,8 +12,6 @@ publication_types:
 - article-journal
 publication: '*BMC research notes*'
 doi: 10.1186/s13104-020-05089-z
-url_source: https://doi.org/10.1186/s13104-020-05089-z
-url: https://doi.org/10.1186/s13104-020-05089-z
 links:
 - name: Publisher
   url: https://doi.org/10.1186/s13104-020-05089-z
