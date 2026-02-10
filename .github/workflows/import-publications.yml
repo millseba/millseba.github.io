@@ -161,8 +161,8 @@ jobs:
           mkdir -p layouts/partials
           cat > layouts/partials/page_metadata_authors.html <<'EOF'
           {{/* Override: render authors as plain text (no links) */}}
-          {{- $page := .page | default . -}}
-          {{- $authors := $page.Params.authors | default (slice) -}}
+          {{- $p := . -}}
+          {{- $authors := $p.Params.authors | default (slice) -}}
           {{- if gt (len $authors) 0 -}}
             <span class="authors">
               {{- range $i, $a := $authors -}}
