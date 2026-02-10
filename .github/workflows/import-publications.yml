@@ -46,7 +46,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install academic==0.10.0 pyyaml bibtexparser
 
-      - name: Inject DOI + publisher link from publications.bib
+      - name: Add DOI Publisher button (links) without breaking Hugo
         if: ${{ hashFiles('publications.bib') != '' && hashFiles('content/publication/**/index.md') != '' }}
         run: |
           python - <<'PY'
@@ -62,9 +62,9 @@ jobs:
                   return None, text
               return parts[1].strip(), parts[2]
 
-          def clean_title(t: str) -> str:
+          def norm_title(t: str) -> str:
               t = (t or "").strip()
-              t = re.sub(r"[{}]", "", t)           # remove BibTeX braces
+              t = re.sub(r"[{}]", "", t)
               t = re.sub(r"\s+", " ", t)
               return t.lower()
 
@@ -73,52 +73,52 @@ jobs:
               d = re.sub(r'^(https?://(dx\.)?doi\.org/)', '', d, flags=re.I)
               return d.strip()
 
-          # --- Read BibTeX and build a title->doi map
+          # Build title -> DOI from BibTeX
           with open("publications.bib", "r", encoding="utf-8") as f:
               bib_db = bibtexparser.load(f)
 
           title_to_doi = {}
           for e in bib_db.entries:
-              title = clean_title(e.get("title", ""))
+              title = norm_title(e.get("title", ""))
               doi = norm_doi(e.get("doi", ""))
               if title and doi:
                   title_to_doi[title] = doi
 
           updated = 0
-          missing = 0
-
           for path in glob.glob("content/publication/**/index.md", recursive=True):
-              with open(path, "r", encoding="utf-8") as f:
-                  txt = f.read()
+              txt = open(path, encoding="utf-8").read()
               fm, body = split_fm(txt)
               if fm is None:
                   continue
               data = yaml.safe_load(fm) or {}
 
-              page_title = clean_title(data.get("title", ""))
-              doi = norm_doi(str(data.get("doi", "") or ""))
+              # Remove problematic fields if present
+              data.pop("url", None)
+              data.pop("url_source", None)
 
-              if not doi:
-                  doi = title_to_doi.get(page_title, "")
+              t = norm_title(data.get("title", ""))
+              doi = norm_doi(str(data.get("doi", "") or "")) or title_to_doi.get(t, "")
 
               if doi:
                   data["doi"] = doi
                   target = f"https://doi.org/{doi}"
-                  data.setdefault("url_source", target)
-                  data.setdefault("url", target)
+
+                  links = data.get("links") or []
+                  if not isinstance(links, list):
+                      links = []
+
+                  # Avoid duplicates
+                  if not any(isinstance(x, dict) and x.get("url") == target for x in links):
+                      links.insert(0, {"name": "Publisher", "url": target})
+                  data["links"] = links
+
                   updated += 1
-              else:
-                  missing += 1
 
-              new_fm = yaml.safe_dump(data, sort_keys=False, allow_unicode=True).strip()
-              new_txt = f"---\n{new_fm}\n---{body}"
-              if new_txt != txt:
-                  with open(path, "w", encoding="utf-8") as f:
-                      f.write(new_txt)
+              newfm = yaml.safe_dump(data, sort_keys=False, allow_unicode=True).strip()
+              open(path, "w", encoding="utf-8").write(f"---\n{newfm}\n---{body}")
 
-          print(f"Injected DOI into {updated} pages; {missing} pages still missing DOI.")
+          print(f"Added Publisher links to {updated} publications (and removed url/url_source).")
           PY
-
 
       - name: Add Publisher button from DOI (links:)
         if: ${{ hashFiles('content/publication/**/index.md') != '' }}
