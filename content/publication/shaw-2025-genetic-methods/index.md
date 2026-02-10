@@ -14,8 +14,6 @@ publication_types:
 - chapter
 publication: '*Cryptosporidium: Methods and Protocols*'
 doi: 10.1007/978-1-0716-4824-7_13
-url_source: https://doi.org/10.1007/978-1-0716-4824-7_13
-url: https://doi.org/10.1007/978-1-0716-4824-7_13
 links:
 - name: Publisher
   url: https://doi.org/10.1007/978-1-0716-4824-7_13
