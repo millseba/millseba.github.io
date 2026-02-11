@@ -3,6 +3,9 @@ title: Sebastian Shaw
 name: Sebastian Shaw
 role: Principal Investigator
 
+image:
+  filename: avatar1.jpg
+
 user_groups:
   - Principal Investigator
 
