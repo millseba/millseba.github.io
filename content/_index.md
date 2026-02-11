@@ -39,3 +39,4 @@ sections:
         This section will feature new publications, lab openings, conferences, and other announcements as the lab gets underway.
     design:
       columns: '1'
+---
