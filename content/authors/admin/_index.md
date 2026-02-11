@@ -5,16 +5,7 @@ role: Principal Investigator
 
 image:
   filename: avatar1.jpg
-
-show_author_links: false
-show_publications: false
-show_posts: false
-show_talks: false
-
-_build:
-  render: false
-  list: false
-
+  
 user_groups:
   - Principal Investigator
 
