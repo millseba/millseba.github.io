@@ -1,5 +1,4 @@
 ---
-
 # Leave the homepage title empty to use the site title
 title: "Shaw Lab"
 subtitle: "Genetic and transcriptomic basis of parasite virulence and persistence"
@@ -30,7 +29,7 @@ sections:
         padding: ['20px', '0', '20px', '0']
       css_class: fullscreen
 
- - block: markdown
+  - block: markdown
     content:
       title: Latest News
       subtitle:
@@ -40,5 +39,4 @@ sections:
         This section will feature new publications, lab openings, conferences, and other announcements as the lab gets underway.
     design:
       columns: '1'
-   
 ---
