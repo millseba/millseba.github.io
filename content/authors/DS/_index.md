@@ -2,6 +2,9 @@
 title: "DS"
 role: "Postdoc"
 
+image:
+  filename: avatar.jpg
+
 authors:
   - DS
 
