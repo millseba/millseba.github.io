@@ -7,4 +7,5 @@ sections:
       title: Team
       user_groups:
         - Principal Investigator
+        - Postdoc
 ---
