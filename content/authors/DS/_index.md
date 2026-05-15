@@ -1,6 +1,6 @@
 ---
 title: "DS"
-role: "Postdoc"
+role: "Postdocs"
 
 image:
   filename: avatar.jpg
