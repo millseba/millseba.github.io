@@ -15,3 +15,7 @@ a[href*="/authors/"] {
   height: auto !important;
   margin: 0 auto !important;
 }
+
+.research-hero img {
+  border: 5px solid red !important;
+}
