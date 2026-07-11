@@ -7,6 +7,7 @@ type: landing
 
 sections:
   - block: hero
+    id: research-hero
     content:
       title: |
         Research Focus
@@ -27,7 +28,7 @@ sections:
         color: "#ffffff"
       spacing:
         padding: ['20px', '0', '20px', '0']
-      css_class: fullscreen research-hero
+      css_class: fullscreen
 
   - block: markdown
     content:
