@@ -29,7 +29,7 @@ sections:
         padding: ['20px', '0', '20px', '0']
       css_class: fullscreen
 
-- block: markdown
+  - block: markdown
   content:
     title: Latest News
     subtitle:
@@ -39,3 +39,4 @@ sections:
       We have started our laboratory at the Institute of Parasitology, University of Zurich. We look forward to beginning this new chapter and building our research programme on *Cryptosporidium* biology.
   design:
     columns: '1'
+---
