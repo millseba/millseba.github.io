@@ -9,7 +9,7 @@ sections:
   - block: hero
     content:
       title: |
-        The Origin of Phenotypic Differences
+        Research Focus
       image:
         filename: welcome.tif
       text: |
@@ -19,7 +19,7 @@ sections:
         
         **Our mission is to unravel how genetic variation shapes infection outcomes.**
 
-        At the **Shaw Lab**, we combine forward genetics, experimental evolution, and transcriptomics to identify parasite factors that determine persistence and virulence.
+        At the **Shaw Lab**, we combine forward and reverse genetics, and transcriptomics to identify parasite factors that determine the diversity in persistence and virulence.
 
         Based at the **University of Zurich**, we aim to build new toolkits for the field and translate basic discovery into better intervention strategies.
     design:
