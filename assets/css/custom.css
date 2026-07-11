@@ -9,8 +9,9 @@ a[href*="/authors/"] {
 
 /* Reduce the image size in the Research Focus hero section */
 .research-hero img {
-  max-width: 20%;
-  height: auto;
-  margin-left: auto;
-  margin-right: auto;
+  display: block !important;
+  width: 60% !important;
+  max-width: 60% !important;
+  height: auto !important;
+  margin: 0 auto !important;
 }
