@@ -1,0 +1,17 @@
+/* Disable author profile links */
+a[href^="/authors/"],
+a[href*="/authors/"] {
+  pointer-events: none;
+  cursor: default;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Reduce the Research Focus hero image */
+#research-hero img {
+  display: block;
+  width: 60% !important;
+  max-width: 60% !important;
+  height: auto;
+  margin: 0 auto;
+}
