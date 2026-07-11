@@ -29,14 +29,13 @@ sections:
         padding: ['20px', '0', '20px', '0']
       css_class: fullscreen
 
-  - block: markdown
-    content:
-      title: Latest News
-      subtitle:
-      text: |
-        Updates from the **Shaw Lab** will appear here.
+- block: markdown
+  content:
+    title: Latest News
+    subtitle:
+    text: |
+      **August 2026 — The Shaw Lab is officially open!**
 
-        This section will feature new publications, lab openings, conferences, and other announcements as the lab gets underway.
-    design:
-      columns: '1'
----
+      We have started our laboratory at the Institute of Parasitology, University of Zurich. We look forward to beginning this new chapter and building our research programme on *Cryptosporidium* biology.
+  design:
+    columns: '1'
