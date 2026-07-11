@@ -27,7 +27,7 @@ sections:
         color: "#ffffff"
       spacing:
         padding: ['20px', '0', '20px', '0']
-      css_class: fullscreen
+      css_class: fullscreen research-hero
 
   - block: markdown
     content:
