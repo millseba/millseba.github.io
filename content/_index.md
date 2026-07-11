@@ -14,9 +14,9 @@ sections:
         filename: welcome.tif
       text: |
         <br>
-        
+
         We study the genetic and transcriptomic basis of virulence and persistence in the apicomplexan parasite *Cryptosporidium*.
-        
+
         **Our mission is to unravel how genetic variation shapes infection outcomes.**
 
         At the **Shaw Lab**, we combine forward and reverse genetics, and transcriptomics to identify parasite factors that determine the diversity in persistence and virulence.
@@ -30,13 +30,13 @@ sections:
       css_class: fullscreen
 
   - block: markdown
-  content:
-    title: Latest News
-    subtitle:
-    text: |
-      **August 2026 — The Shaw Lab is officially open!**
+    content:
+      title: Latest News
+      subtitle:
+      text: |
+        **August 2026 — The Shaw Lab is officially open!**
 
-      We have started our laboratory at the Institute of Parasitology, University of Zurich. We look forward to beginning this new chapter and building our research programme on *Cryptosporidium* biology.
-  design:
-    columns: '1'
+        We have started our laboratory at the Institute of Parasitology, University of Zurich. We look forward to beginning this new chapter and building our research programme on *Cryptosporidium* biology.
+    design:
+      columns: '1'
 ---
