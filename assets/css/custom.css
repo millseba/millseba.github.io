@@ -9,7 +9,7 @@ a[href*="/authors/"] {
 
 /* Reduce the image size in the Research Focus hero section */
 .research-hero img {
-  max-width: 70%;
+  max-width: 20%;
   height: auto;
   margin-left: auto;
   margin-right: auto;
