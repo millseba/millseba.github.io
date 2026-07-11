@@ -6,3 +6,11 @@ a[href*="/authors/"] {
   text-decoration: none;
   color: inherit;
 }
+
+/* Reduce the image size in the Research Focus hero section */
+.research-hero img {
+  max-width: 70%;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
