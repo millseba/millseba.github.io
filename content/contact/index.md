@@ -3,13 +3,13 @@ title: Contact
 ---
 
 ### Email
-You can reach us at: **YOUR.EMAIL@uzh.ch**
+You can reach us at: **Sebastian.shaw[at]uzh.ch**
 
 ### Address
 Institute of Parasitology  
 University of Zurich  
-**(Add street + postal code once final)**  
-Zurich, Switzerland
+Winterthurerstrasse 266a  
+8057 Zurich, Switzerland
 
 ### Prospective trainees
 If you’re interested in joining the lab (PhD, postdoc, or research assistant), please email:
