@@ -40,7 +40,7 @@ sections:
         padding: ['20px', '0', '20px', '0']
       css_class: fullscreen
 
- - block: markdown
+  - block: markdown
   content:
     title: Latest News
     subtitle:
