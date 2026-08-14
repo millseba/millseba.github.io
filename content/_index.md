@@ -50,4 +50,6 @@ sections:
         We have started our laboratory at the Institute of Parasitology, University of Zurich. We look forward to beginning this new chapter and building our research programme on *Cryptosporidium* biology.
     design:
       columns: '1'
+    
+        **August 2026 — The Shaw Lab is officially open!**
 ---
