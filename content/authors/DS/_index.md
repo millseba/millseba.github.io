@@ -12,4 +12,6 @@ superuser: false
 
 user_groups:
   - Postdocs
+
+Bio: Test BIO
 ---
