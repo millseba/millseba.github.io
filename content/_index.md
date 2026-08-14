@@ -20,7 +20,7 @@ sections:
     id: research-hero
     content:
       title: |
-        Research Focus
+        Welcome!
       image:
         filename: welcome.tif
       text: |
