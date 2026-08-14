@@ -13,7 +13,7 @@ organizations:
   - name: Institute of Parasitology, University of Zurich
     url: "https://www.paras.uzh.ch/en.html"
 
-bio: Genetics of parasite virulence and persistence.
+bio: Test BIO
 
 social:
   - icon: google-scholar
