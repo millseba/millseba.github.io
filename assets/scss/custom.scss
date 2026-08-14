@@ -24,3 +24,16 @@ a[href*="/authors/"] {
   object-fit: cover;
   margin: 0 auto;
 }
+
+/* Widen bios on the People page */
+.people-widget .people-person {
+  width: 100%;
+  max-width: 800px;
+}
+
+.people-widget .people-bio {
+  max-width: 700px;
+  margin: 1rem auto 0;
+  text-align: center;
+  line-height: 1.6;
+}
