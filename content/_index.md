@@ -40,16 +40,19 @@ sections:
         padding: ['20px', '0', '20px', '0']
       css_class: fullscreen
 
-  - block: markdown
-    content:
-      title: Latest News
-      subtitle:
-      text: |
-        **August 2026 — The Shaw Lab is officially open!**
+ - block: markdown
+  content:
+    title: Latest News
+    subtitle:
+    text: |
+      **August 2026 – The Shaw Lab is officially open!**
 
-        We have started our laboratory at the Institute of Parasitology, University of Zurich. We look forward to beginning this new chapter and building our research programme on *Cryptosporidium* biology.
-    design:
-      columns: '1'
-    
-        **August 2026 — The Shaw Lab is officially open!**
+      We have started our laboratory at the Institute of Parasitology, University of Zurich. We look forward to beginning this new chapter and building our research programme on *Cryptosporidium* biology.
+
+      **October 2026 – Welcome Dorenda, first postdoc in the Shaw Lab!**
+
+      Dorenda joins the Shaw Lab as our first postdoc. After defending her thesis on xxx in *Plasmodium vivax*, she committed to join the dark side of Apicomplexa and will work on dissecting the differences in host-pathogen interactions among different *Cryptosporidium* strains.
+
+  design:
+    columns: '1'
 ---
