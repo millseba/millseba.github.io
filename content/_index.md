@@ -20,13 +20,13 @@ sections:
     id: research-hero
     content:
       title: |
-        Welcome!
+        Welcome to the Shaw Lab
       image:
         filename: welcome.tif
       text: |
         <br>
 
-        We study the genetic and transcriptomic basis of virulence and persistence in the apicomplexan parasite *Cryptosporidium*.
+        We study the genomic and transcriptomic basis of phenotypic differences in the apicomplexan parasite *Cryptosporidium*.
 
         **Our mission is to unravel how genetic variation shapes infection outcomes.**
 
