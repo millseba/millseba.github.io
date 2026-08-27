@@ -9,7 +9,7 @@ title: Research
 *Cryptosporidium* spp. can colonize almost all vertebrates. Recently identified strains have been linked to a rise in cryptosporidiosis cases in the United States rapidly sweeping across the country. However, the specific parasite genes important for this fitness advantage such as higher transmissibility and longer (chronic) infections remain unknown. Two *C. parvum* subtypes, IIa and IId, show interesting differences in virulence and persistence. Mice infected with *C. parvum* subtype IId showed higher oocyst shedding (as a proxy for **virulence**) within the first 10 days post infection, with no clearance over a 50-day period (as a proxy for **persisters**). *C. parvum* subtype IIa, however, is cleared after two to three weeks (**non-persisters**) and is considered as non-virulent. 
 *There is an urgent need to expand research on this neglected parasite to gain a deeper understanding of its biology and to discover novel therapeutic and preventive strategies to reduce its global impact.*
 
-In Shaw Lab, we are interested to study and find answers to the following outstanding questions:
+**In the Shaw Lab, we are interested to study and find answers to the following outstanding questions:**
 
 (1) What is the genetic basis for persistence and virulence? 
 
