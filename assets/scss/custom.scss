@@ -14,37 +14,37 @@ a[href*="/authors/"] {
 
 
 /* Center the Welcome title */
-#research-hero h1 {
+#home-hero h1 {
   text-align: center;
 }
 
 
-/* Make the Welcome section wider */
-#research-hero .container {
+/* Make the Welcome section use the full available width */
+#home-hero .container {
   max-width: 100% !important;
   width: 100% !important;
   padding-left: 5% !important;
   padding-right: 5% !important;
 }
 
-#research-hero .row {
+#home-hero .row {
   width: 100% !important;
   margin-left: 0 !important;
   margin-right: 0 !important;
 }
 
-#research-hero [class*="col-"] {
+#home-hero [class*="col-"] {
   max-width: 100% !important;
   flex: 0 0 100% !important;
 }
 
-#research-hero p {
+#home-hero p {
   max-width: none !important;
   width: 100% !important;
 }
 
 
-/* Make Latest News wider */
+/* Make Latest News use the full available width */
 #latest-news .container {
   max-width: 100% !important;
   width: 100% !important;
@@ -64,7 +64,7 @@ a[href*="/authors/"] {
 }
 
 
-/* Top Zurich landscape */
+/* Top Zurich landscape image */
 #top-landscape img {
   width: 100vw;
   max-width: none;
@@ -79,7 +79,7 @@ a[href*="/authors/"] {
 }
 
 
-/* Bottom microscopy landscape */
+/* Bottom microscopy image */
 #bottom-landscape {
   background: #000;
 }
@@ -126,6 +126,7 @@ a[href*="/authors/"] {
    PEOPLE PAGE
    ========================= */
 
+/* Widen bios on the People page */
 .people-widget .people-person {
   width: 100%;
   max-width: 800px;
