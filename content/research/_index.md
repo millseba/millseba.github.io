@@ -17,7 +17,6 @@ title: Research
 <p align="center">
   <strong>Phenotypic differences in virulence and persistence among two strains.</strong>
   <br>
-  
   <img src="virulence.png" style="width:60%;">
 </p>
 
