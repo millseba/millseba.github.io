@@ -1,4 +1,7 @@
-/* Disable author profile links */
+/* =========================
+   DISABLE AUTHOR PROFILE LINKS
+   ========================= */
+
 a[href^="/authors/"],
 a[href*="/authors/"] {
   pointer-events: none;
@@ -13,38 +16,9 @@ a[href*="/authors/"] {
    ========================= */
 
 
-/* Center the Welcome title */
-#home-hero h1 {
-  text-align: center;
-}
+/* Make Welcome and Latest News use the same width */
 
-
-/* Make the Welcome section use the full available width */
-#home-hero .container {
-  max-width: 100% !important;
-  width: 100% !important;
-  padding-left: 5% !important;
-  padding-right: 5% !important;
-}
-
-#home-hero .row {
-  width: 100% !important;
-  margin-left: 0 !important;
-  margin-right: 0 !important;
-}
-
-#home-hero [class*="col-"] {
-  max-width: 100% !important;
-  flex: 0 0 100% !important;
-}
-
-#home-hero p {
-  max-width: none !important;
-  width: 100% !important;
-}
-
-
-/* Make Latest News use the full available width */
+#home-intro .container,
 #latest-news .container {
   max-width: 100% !important;
   width: 100% !important;
@@ -52,25 +26,52 @@ a[href*="/authors/"] {
   padding-right: 5% !important;
 }
 
+
+/* Make both text columns full width */
+
+#home-intro .row,
 #latest-news .row {
   width: 100% !important;
   margin-left: 0 !important;
   margin-right: 0 !important;
 }
 
+
+#home-intro [class*="col-"],
 #latest-news [class*="col-"] {
   max-width: 100% !important;
   flex: 0 0 100% !important;
 }
 
 
-/* Top Zurich landscape image */
+/* Remove artificial maximum paragraph widths */
+
+#home-intro p,
+#latest-news p {
+  max-width: none !important;
+}
+
+
+/* Center both section headings */
+
+#home-intro .section-heading,
+#latest-news .section-heading {
+  text-align: center;
+}
+
+
+/* =========================
+   TOP ZURICH IMAGE
+   ========================= */
+
 #top-landscape img {
   width: 100vw;
   max-width: none;
   height: 260px;
+
   object-fit: cover;
   object-position: center;
+
   display: block;
 
   position: relative;
@@ -79,21 +80,26 @@ a[href*="/authors/"] {
 }
 
 
-/* Bottom microscopy image */
-#bottom-landscape {
-  background: #000;
+#top-landscape p {
+  margin: 0;
 }
+
+
+/* =========================
+   BOTTOM MICROSCOPY IMAGE
+   ========================= */
 
 #bottom-landscape img {
   width: 100vw;
   max-width: none;
-  height: 260px;
 
-  object-fit: contain;
-  object-position: center;
+  /*
+     Do not force a height here.
+     The landscape image keeps its real proportions.
+  */
+  height: auto;
 
   display: block;
-  background: #000;
 
   position: relative;
   left: 50%;
@@ -101,10 +107,17 @@ a[href*="/authors/"] {
 }
 
 
-/* Remove default Markdown image spacing */
-#top-landscape p,
 #bottom-landscape p {
   margin: 0;
+}
+
+
+/* Remove unnecessary space around the image sections */
+
+#top-landscape,
+#bottom-landscape {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
 }
 
 
@@ -113,6 +126,7 @@ a[href*="/authors/"] {
    ========================= */
 
 /* Reduce the Research Focus hero image */
+
 #research-hero img {
   display: block;
   width: 70% !important;
@@ -126,11 +140,11 @@ a[href*="/authors/"] {
    PEOPLE PAGE
    ========================= */
 
-/* Widen bios on the People page */
 .people-widget .people-person {
   width: 100%;
   max-width: 800px;
 }
+
 
 .people-widget .people-bio {
   max-width: 700px;
