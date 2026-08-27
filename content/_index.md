@@ -7,6 +7,10 @@ type: landing
 
 sections:
 
+  # =========================
+  # TOP ZURICH IMAGE
+  # =========================
+
   - block: markdown
     id: top-landscape
     content:
@@ -18,14 +22,16 @@ sections:
         padding: ['0', '0', '10px', '0']
 
 
-  - block: hero
-    id: home-hero
-    content:
-      title: |
-        Welcome to the Shaw Lab
-      text: |
-        <br>
+  # =========================
+  # WELCOME SECTION
+  # =========================
 
+  - block: markdown
+    id: home-intro
+    content:
+      title: Welcome to the Shaw Lab
+      subtitle:
+      text: |
         We study the genomic and transcriptomic basis of phenotypic differences in the apicomplexan parasite *Cryptosporidium*.
 
         **Our mission is to unravel how genetic variation shapes infection outcomes.**
@@ -35,11 +41,16 @@ sections:
         Based at the **University of Zurich**, we aim to build new toolkits for the field and translate basic discovery into better intervention strategies.
 
     design:
+      columns: '1'
       background:
         color: "#ffffff"
       spacing:
         padding: ['20px', '0', '20px', '0']
 
+
+  # =========================
+  # LATEST NEWS
+  # =========================
 
   - block: markdown
     id: latest-news
@@ -57,15 +68,21 @@ sections:
 
     design:
       columns: '1'
+      background:
+        color: "#ffffff"
       spacing:
         padding: ['20px', '0', '40px', '0']
 
+
+  # =========================
+  # BOTTOM MICROSCOPY IMAGE
+  # =========================
 
   - block: markdown
     id: bottom-landscape
     content:
       text: |
-        ![](welcome1.jpg)
+        ![](welcome1-landscape.jpg)
     design:
       columns: '1'
       spacing:
