@@ -19,7 +19,7 @@ sections:
 
 
   - block: hero
-    id: research-hero
+    id: home-hero
     content:
       title: |
         Welcome to the Shaw Lab
