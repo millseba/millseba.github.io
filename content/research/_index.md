@@ -11,6 +11,8 @@ title: Research
 
 <p align="center">
   <img src="virulence.png" style="width:60%;">
+  <br>
+  <em>**Phenotypic differences in virulence and persistence among two strains.**</em>
 </p>
 
 **In the Shaw Lab, we are interested to study and find answers to the following outstanding questions:**
