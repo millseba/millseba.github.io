@@ -12,7 +12,7 @@ sections:
     content:
       text: |
         <div style="width:100vw; margin-left:calc(50% - 50vw);">
-          <img src="research-landscape.jpg"
+          <img src="/media/research-landscape.jpg"
                style="width:100%; height:260px; object-fit:cover; display:block;">
         </div>
     design:
@@ -44,7 +44,7 @@ sections:
         padding: ['20px', '0', '20px', '0']
 
 
- - block: markdown
+  - block: markdown
     content:
       title: Latest News
       subtitle:
@@ -57,14 +57,21 @@ sections:
 
         Dorenda joins the Shaw Lab as our first postdoc. After defending her thesis on xxx in *Plasmodium vivax*, she has now joined the dark side of the Apicomplexa ;-) and will work on dissecting the differences in host-pathogen interactions among different *Cryptosporidium* strains.
 
+    design:
+      columns: '1'
+      spacing:
+        padding: ['20px', '0', '40px', '0']
+
+
   - block: markdown
     id: bottom-landscape
     content:
       text: |
         <div style="width:100vw; margin-left:calc(50% - 50vw);">
-          <img src="welcome1.jpg"
+          <img src="/media/welcome1.jpg"
                style="width:100%; height:260px; object-fit:cover; object-position:center; display:block;">
         </div>
+
     design:
       columns: '1'
       spacing:
