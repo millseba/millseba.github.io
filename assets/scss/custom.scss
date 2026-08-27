@@ -97,7 +97,9 @@ a[href*="/authors/"] {
      Do not force a height here.
      The landscape image keeps its real proportions.
   */
-  height: auto;
+  height: 320px;
+  object-fit: cover;
+  object-position: center 70%;
 
   display: block;
 
