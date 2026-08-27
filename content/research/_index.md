@@ -10,7 +10,7 @@ title: Research
 *There is an urgent need to expand research on this neglected parasite to gain a deeper understanding of its biology and to discover novel therapeutic and preventive strategies to reduce its global impact.*
 
 <p align="center">
-  <img src="virulence.png" style="width:75%;">
+  <img src="virulence.png" style="width:60%;">
 </p>
 
 **In the Shaw Lab, we are interested to study and find answers to the following outstanding questions:**
