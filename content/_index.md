@@ -1,19 +1,25 @@
 ---
+# Leave the homepage title empty to use the site title
 title: "Shaw Lab"
 subtitle: "Genetic and transcriptomic basis of parasite virulence and persistence"
 date: 2022-10-24
 type: landing
 
 sections:
+
   - block: markdown
     id: top-landscape
     content:
       text: |
-        ![](research-landscape.jpg)
+        <div style="width:100vw; margin-left:calc(50% - 50vw);">
+          <img src="research-landscape.jpg"
+               style="width:100%; height:260px; object-fit:cover; display:block;">
+        </div>
     design:
       columns: '1'
       spacing:
         padding: ['0', '0', '10px', '0']
+
 
   - block: hero
     id: research-hero
@@ -30,11 +36,13 @@ sections:
         At the **Shaw Lab**, we combine forward and reverse genetics and transcriptomics to identify parasite factors that determine the diversity in persistence and virulence.
 
         Based at the **University of Zurich**, we aim to build new toolkits for the field and translate basic discovery into better intervention strategies.
+
     design:
       background:
         color: "#ffffff"
       spacing:
         padding: ['20px', '0', '20px', '0']
+
 
   - block: markdown
     content:
@@ -49,13 +57,24 @@ sections:
 
         Dorenda joins the Shaw Lab as our first postdoc. After defending her thesis on xxx in *Plasmodium vivax*, she has now joined the dark side of the Apicomplexa ;-) and will work on dissecting the differences in host-pathogen interactions among different *Cryptosporidium* strains.
 
+    design:
+      columns: '1'
+      spacing:
+        padding: ['20px', '0', '40px', '0']
+
+
   - block: markdown
     id: bottom-landscape
     content:
       text: |
-        <img src="welcome.tif" style="width:100%; height:260px; object-fit:cover; object-position:center;">
+        <div style="width:100vw; margin-left:calc(50% - 50vw);">
+          <img src="welcome1.jpg"
+               style="width:100%; height:260px; object-fit:cover; object-position:center; display:block;">
+        </div>
+
     design:
       columns: '1'
       spacing:
-        padding: ['10px', '0', '0', '0']
+        padding: ['0', '0', '0', '0']
+
 ---
