@@ -37,3 +37,25 @@ a[href*="/authors/"] {
   text-align: center;
   line-height: 1.6;
 }
+
+/* Full-width landscape images at top and bottom of homepage */
+
+#top-landscape img,
+#bottom-landscape img {
+  width: 100vw;
+  max-width: none;
+  height: 260px;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Remove margins automatically added around Markdown images */
+#top-landscape p,
+#bottom-landscape p {
+  margin: 0;
+}
