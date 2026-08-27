@@ -1,5 +1,4 @@
 ---
-# Leave the homepage title empty to use the site title
 title: "Shaw Lab"
 subtitle: "Genetic and transcriptomic basis of parasite virulence and persistence"
 date: 2022-10-24
@@ -21,8 +20,6 @@ sections:
     content:
       title: |
         Welcome to the Shaw Lab
-      image:
-        filename: welcome.tif
       text: |
         <br>
 
@@ -38,7 +35,6 @@ sections:
         color: "#ffffff"
       spacing:
         padding: ['20px', '0', '20px', '0']
-      css_class: fullscreen
 
   - block: markdown
     content:
@@ -53,6 +49,13 @@ sections:
 
         Dorenda joins the Shaw Lab as our first postdoc. After defending her thesis on xxx in *Plasmodium vivax*, she has now joined the dark side of the Apicomplexa ;-) and will work on dissecting the differences in host-pathogen interactions among different *Cryptosporidium* strains.
 
+  - block: markdown
+    id: bottom-landscape
+    content:
+      text: |
+        <img src="welcome.tif" style="width:100%; height:260px; object-fit:cover; object-position:center;">
     design:
       columns: '1'
+      spacing:
+        padding: ['10px', '0', '0', '0']
 ---
