@@ -11,10 +11,7 @@ sections:
     id: top-landscape
     content:
       text: |
-        <div style="width:100vw; margin-left:calc(50% - 50vw);">
-          <img src="/media/research-landscape.jpg"
-               style="width:100%; height:260px; object-fit:cover; display:block;">
-        </div>
+        ![](research-landscape.jpg)
     design:
       columns: '1'
       spacing:
@@ -45,6 +42,7 @@ sections:
 
 
   - block: markdown
+    id: latest-news
     content:
       title: Latest News
       subtitle:
@@ -67,11 +65,7 @@ sections:
     id: bottom-landscape
     content:
       text: |
-        <div style="width:100vw; margin-left:calc(50% - 50vw);">
-          <img src="/media/welcome1.jpg"
-               style="width:100%; height:260px; object-fit:cover; object-position:center; display:block;">
-        </div>
-
+        ![](welcome1.jpg)
     design:
       columns: '1'
       spacing:
