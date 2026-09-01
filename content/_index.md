@@ -64,7 +64,7 @@ sections:
 
         **October 2026 – Welcome Dorenda, first postdoc in the Shaw Lab!**
 
-        Dorenda joins the Shaw Lab as our first postdoc. After defending her thesis on xxx in *Plasmodium vivax*, she has now joined the dark side of the Apicomplexa ;-) and will work on dissecting the differences in host-pathogen interactions among different *Cryptosporidium* strains.
+        Dorenda joins the Shaw Lab as our first postdoc. After defending her thesis on xxx in *Plasmodium vivax*, she has now traded malaria parasites for *Cryptosporidium* and joined another corner of the wonderful world of Apicomplexa ;-) and will work on dissecting the differences in host-pathogen interactions among different *Cryptosporidium* strains.
 
     design:
       columns: '1'
