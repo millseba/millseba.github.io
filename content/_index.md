@@ -62,7 +62,7 @@ sections:
 
         We have started our laboratory at the Institute of Parasitology, University of Zurich. We look forward to beginning this new chapter and building our research programme on *Cryptosporidium* biology.
 
-        **October 2026 – Welcome Dorenda, first postdoc in the Shaw Lab!**
+        **November 2026 – Welcome Dr. Dorenda Schoorl, first postdoc in the Shaw Lab!**
 
         Dorenda joins the Shaw Lab as our first postdoc! After defending her thesis on how *Plasmodium vivax* infection impacts the host bone marrow and its immune cells *in vivo*. She has now traded malaria parasites for *Cryptosporidium* and joined another corner of the wonderful world of Apicomplexa ;-) and will work on dissecting the differences in host-pathogen interactions among different *Cryptosporidium* strains.
 
