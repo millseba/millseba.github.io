@@ -67,7 +67,7 @@ a[href*="/authors/"] {
 #top-landscape img {
   width: 110vw;
   max-width: none;
-  height: 300px;
+  height: 400px;
 
   object-fit: cover;
   object-position: center 30%;
@@ -76,7 +76,7 @@ a[href*="/authors/"] {
 
   position: relative;
   left: 50%;
-  transform: translateX(-47%);
+  transform: translateX(-40%);
 }
 
 #top-landscape p {
