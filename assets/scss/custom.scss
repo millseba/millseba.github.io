@@ -65,18 +65,18 @@ a[href*="/authors/"] {
    ========================= */
 
 #top-landscape img {
-  width: 110vw;
+  width: 100vw;
   max-width: none;
   height: 400px;
 
   object-fit: cover;
-  object-position: center 30%;
+  object-position: 60% 30%;
 
   display: block;
 
   position: relative;
   left: 50%;
-  transform: translateX(-40%);
+  transform: translateX(-50%);
 }
 
 #top-landscape p {
