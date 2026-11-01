@@ -8,6 +8,9 @@ title: Research
 <p align="center">
   <img src="intro.png" style="width:60%;">
   <br>
+  <small style="color:#888; font-size:12px;">
+    Image from <a href="/publication/shaw-2024-parasite-sexy/">Shaw & Striepen (2024)</a>
+  </small>
 </p>
 
 ## *Cryptosporidium* strains differ in their virulence and persistence and recombine to drive adaptation
@@ -18,6 +21,10 @@ title: Research
   <strong>Phenotypic differences in virulence and persistence among two strains.</strong>
   <br>
   <img src="virulence.png" style="width:60%;">
+  <br>
+  <small style="color:#888; font-size:12px;">
+    Figure from <a href="/publication/shaw-2025-genetic-celrep/">Shaw et al. (2025)</a>
+  </small>
 </p>
 
 
