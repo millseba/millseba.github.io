@@ -25,6 +25,8 @@ title: Research
 </div>
 
 
+
+
 **In the Shaw Lab, we are interested to study and find answers to the following outstanding questions:**
 
 (1) What is the genetic basis for persistence and virulence? 
