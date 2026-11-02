@@ -32,11 +32,9 @@ sections:
       title: Welcome to the Shaw Lab
       subtitle:
       text: |
-        We study the genomic and transcriptomic basis of phenotypic differences in the apicomplexan parasite *Cryptosporidium*.
+        Our mission is to unravel how genetic variation shapes infection outcomes. We study the genomic and transcriptomic basis of phenotypic differences in the apicomplexan parasite *Cryptosporidium*.
 
-        **Our mission is to unravel how genetic variation shapes infection outcomes.**
-
-        At the **Shaw Lab**, we combine forward and reverse genetics and transcriptomics to identify parasite factors that determine the diversity in persistence and virulence.
+        At the Shaw Lab, we combine forward and reverse genetics and transcriptomics to identify parasite factors that determine the diversity in persistence and virulence.
 
         Based at the **University of Zurich**, we aim to build new toolkits for the field and translate basic discovery into better intervention strategies.
 
